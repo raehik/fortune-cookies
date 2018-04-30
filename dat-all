@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+fortune_dir="fortunes"
+datfile_suffix=".dat"
+datfile_sep="%"
+
+cd "$fortune_dir"
+for f in *; do
+    [[ "${f: -4}" == "$datfile_suffix" ]] && continue
+    strfile -c "$datfile_sep" "$f" "${f}${datfile_suffix}"
+done
